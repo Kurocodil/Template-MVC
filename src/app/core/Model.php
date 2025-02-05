@@ -11,7 +11,7 @@ class Model extends Database {
 
 
     protected $table;           // Le nom de la table associée au model
-    protected $colmuns = [];    // Les colonnes de la table
+    protected $columns = [];    // Les colonnes de la table
     protected $query;           // Requête SQL
 
 
@@ -83,8 +83,8 @@ class Model extends Database {
     // Méthode Replace
     public function replace($data) {
         // On extrait les colonnes et leurs valeurs
-        $colums = implode(',', array_keys($data));                                               // Colonnes à insérer ou mettre à jour
-        $placeholders = ":" . implode(',:', array_keyrs($data));                                 // Placeholders pour les valeurs
+        $columns = implode(',', array_keys($data));                                               // Colonnes à insérer ou mettre à jour
+        $placeholders = ":" . implode(',:', array_keys($data));                                 // Placeholders pour les valeurs
 
         // Construction de la requête REPLACE INTO
         $this->query = "REPLACE INTO " . $this->table . " ($columns) VALUES ($placeholders)";
@@ -101,7 +101,7 @@ class Model extends Database {
 
         // Si des conditions where sont définies, on les ajoute à la requête
         if (!empty($this->columns)) {
-            $this->query .= " WHERE " . key($this->columns) . " = " . key($this->colmuns);
+            $this->query .= " WHERE " . key($this->columns) . " = " . key($this->columns);
         }
 
         // Préparation et exécution de la requête
