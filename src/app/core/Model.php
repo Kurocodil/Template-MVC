@@ -110,7 +110,7 @@ class Model extends Database {
     }
 
     // Méthode BelongTo
-    public function beongTo($relatedModel, $foreignKey) {
+    public function belongTo($relatedModel, $foreignKey) {
         $related = new $relatedModel();                                                                          // Crée une instance du modèle lié
         $relatedTable = $related->table;
         $this->query .= " LEFT JOIN $relatedTable ON $relatedTable.id = " . $this->table . "." . $foreignKey;

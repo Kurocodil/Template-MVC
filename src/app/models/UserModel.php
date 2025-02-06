@@ -16,8 +16,12 @@ class UserModel extends Model {
     }
 
     // Méthode pour supprimer un utilisateur
+    // public function deleteById($id) {
+    //     return $this->query("DELETE FROM " . $this->table . " WHERE id = :id")->execute([':id' => $id]);    // Execute la suppression de l'utilisateur
+    // }
     public function deleteById($id) {
-        return $this->query("DELETE FROM " . $this->table . " WHERE id = :id")->execute([':id' => $id]);    // Execute la suppression de l'utilisateur
+        $this->where('id', '=', $id);
+        return $this->delete();
     }
 
     // Relation "hasOneé avec UserInfoModel
