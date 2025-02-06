@@ -1,0 +1,4 @@
+        </script>
+        <script type="text/javascript"><@ include_once 'js/app.min.js'; @></script>
+    </body>
+</html>

@@ -22,37 +22,37 @@ define('VIEWS_PATH', '../app/views/');
 // Redirection via URL
 
 ob_start();
-$head_title="Portfolio";
+$head_title="Template";
 switch($url) {
     case '':
     case '/':
     case '/home':
-        require VIEWS_PATH.'home.php';
+        require VIEWS_PATH.'home.view';
         $head_title.=" - Accueil";
         $view='home';
         break;
     case '/p2':
-        require VIEWS_PATH.'p2.php';
+        require VIEWS_PATH.'p2.view';
         $head_title.=" - CV";
         $view='p2';
         break;
     case '/p3':
-        require VIEWS_PATH.'p3.php';
+        require VIEWS_PATH.'p3.view';
         $head_title.=" - Projets";
         $view='p3';
         break;
     case '/p4':
-        require VIEWS_PATH.'p4.php';
+        require VIEWS_PATH.'p4.view';
         $head_title.=" - p4";
         $view='p4';
         break;
     case '/p5':
-        require VIEWS_PATH.'p5.php';
+        require VIEWS_PATH.'p5.view';
         $head_title.=" - p5";
         $view='p5';
         break;
     default:
-        require VIEWS_PATH.'errors/404.php';
+        require VIEWS_PATH.'errors/404.view';
         $head_title="Page inconnu";
         $view='404';
         break;
@@ -60,8 +60,8 @@ switch($url) {
 
 $contents=ob_get_clean();
 
-require VIEWS_PATH.'core/head.php';
-require VIEWS_PATH.'layout/header.php';
+require VIEWS_PATH.'core/head.view';
+require VIEWS_PATH.'layout/header.view';
 echo $contents;
-require VIEWS_PATH.'layout/footer.php';
+require VIEWS_PATH.'layout/footer.view';
 ?>
