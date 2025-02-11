@@ -4,7 +4,7 @@
  * @ Create Time: 2025-05-02 13:50:57
  * @ Modified by: Mathéo Siron
  * @ Modified time: 2025-05-02 13:50:57
- * @ Description: Classe de base de données pour gérer la connexion à la base de données.
+ * @ Description: Classe de base de données pour gérer la connexion à la base de données PDO.
  */
 
 

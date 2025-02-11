@@ -4,7 +4,7 @@
  * @ Create Time: 2025-05-02 13:59:39
  * @ Modified by: Mathéo Siron
  * @ Modified time: 2025-05-02 13:59:39
- * @ Description: Classe de base de données pour gérer la connexion à la base de données.
+ * @ Description: Classe pour toutes les commandes executables sur la base de données.
  */
 
 class Model extends Database {

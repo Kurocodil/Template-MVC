@@ -11,48 +11,46 @@ try {
     die('Connexion échouée : ' . $e->getMessage());
 }
 
-// Récupération des données
-$stmt = $pdo->query('SELECT users.username, users_infos.bio FROM users JOIN users_infos ON users.id = users_infos.user_id');
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+// Routeur
 // Récupération de l'url demandé
 $url = $_SERVER['REQUEST_URI'];
 
+// Définition de la constante VIEWS_PATH pour éviter de réécrire le chemin
 define('VIEWS_PATH', '../app/views/');
 // Redirection via URL
 
 ob_start();
-$head_title="Template";
+$head_title="Portfolio";
 switch($url) {
     case '':
     case '/':
     case '/home':
-        require VIEWS_PATH.'home.view';
+        require VIEWS_PATH.'home.php';
         $head_title.=" - Accueil";
         $view='home';
         break;
     case '/p2':
-        require VIEWS_PATH.'p2.view';
+        require VIEWS_PATH.'p2.php';
         $head_title.=" - CV";
         $view='p2';
         break;
     case '/p3':
-        require VIEWS_PATH.'p3.view';
+        require VIEWS_PATH.'p3.php';
         $head_title.=" - Projets";
         $view='p3';
         break;
     case '/p4':
-        require VIEWS_PATH.'p4.view';
+        require VIEWS_PATH.'p4.php';
         $head_title.=" - p4";
         $view='p4';
         break;
     case '/p5':
-        require VIEWS_PATH.'p5.view';
+        require VIEWS_PATH.'p5.php';
         $head_title.=" - p5";
         $view='p5';
         break;
     default:
-        require VIEWS_PATH.'errors/404.view';
+        require VIEWS_PATH.'errors/404.php';
         $head_title="Page inconnu";
         $view='404';
         break;
@@ -60,8 +58,8 @@ switch($url) {
 
 $contents=ob_get_clean();
 
-require VIEWS_PATH.'core/head.view';
-require VIEWS_PATH.'layout/header.view';
+require VIEWS_PATH.'core/head.php';
+require VIEWS_PATH.'layout/header.php';
 echo $contents;
-require VIEWS_PATH.'layout/footer.view';
+require VIEWS_PATH.'layout/footer.php';
 ?>
